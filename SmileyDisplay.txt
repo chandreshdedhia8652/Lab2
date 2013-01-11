@@ -1,0 +1,48 @@
+// SmileyDisplay.txt
+//
+// ICS 21 Assignment 2
+//
+// Information about the public aspects of the SmileyDisplay class.
+
+
+public class SmileyDisplay
+{
+	// Builds the SmileyDisplay with a black background
+	// and four walls along its outside edge.
+	public SmileyDisplay()
+
+	
+	// Prepares the SmileyDisplay to show the given SmileyAnimation.
+	// Note that you will not need to call this method.
+	// (The graphics routines call it to place the smiley into
+	// the animation window.)
+	public void initSmiley(SmileyAnimation s)
+	
+	
+	// Returns the color of the wall whose name is given by wallName.
+	// wallName can be either "Left", "Right", "Top", or "Bottom".
+	public Color getWallColor(String wallName)
+	
+	
+	// Changes the color of the wall whose name is given by wallName.
+	// wallName can be either "Left", "Right", "Top", or "Bottom".
+	public void setWallColor(String wallName, Color newColor)
+	
+	
+	// Returns the coordinate of the "edge" of the wall whose name is
+	// given by wallName.  wallName can be either "Left", "Right", "Top",
+	// or "Bottom".
+	//
+	// For example, if the left wall extends 10 pixels to the right from
+	// the edge of the display, getEdge("Left") returns 10;
+	// if the bottom wall extends 10 pixels up from the bottom of
+	// the display, getEdge("Bottom") returns BOTTOM_EDGE - 10,
+	// where BOTTOM_EDGE is the y-coordinate of the bottom
+	// edge of the display panel
+	public int getEdge(String wallName)
+	
+	
+	// Draws the animation in the graphics window.  Call this once for
+	// each frame of your animation.
+	public void draw()
+}
