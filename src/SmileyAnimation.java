@@ -142,7 +142,8 @@ public class SmileyAnimation
 		// and the smiley is moving toward this wall
 
 
-		// *** REPLACE THIS COMMENT WITH YOUR CODE ***			
+		// *** REPLACE THIS COMMENT WITH YOUR CODE ***
+		return ((movingSmiley.getRightEdge() >= display.getEdge("Right")) && (currentXMovement == 1)) ? true: false;
 	}
 
 	
