@@ -40,7 +40,19 @@ public class SmileyAnimation
 	// Initialize the random number generator
 	public SmileyAnimation(SmileyDisplay d)
 	{
-		// *** REPLACE THIS COMMENT WITH YOUR CODE ***			
+		// *** REPLACE THIS COMMENT WITH YOUR CODE ***	
+		movingSmiley = new SmileyFace();
+		movingSmiley.getFace().setAttributes(Color.MAGENTA, 100, 200, 150, 150);
+		movingSmiley.getLeftEye().setAttributes(Color.BLACK, 60, 180, 30, 30);
+		movingSmiley.getRightEye().setAttributes(Color.BLACK, 140, 180, 30, 30);
+		movingSmiley.getSmile().setAttributes(Color.BLACK, 100, 240, 30, 50);
+		
+		display = new SmileyDisplay();
+		
+		currentXMovement = INIT_X_DIRECTION;
+		currentYMovement = INIT_Y_DIRECTION;
+		
+		generator = new Random();
 	}
 
 
@@ -65,14 +77,20 @@ public class SmileyAnimation
 			// an edge; when that happens, swap color of smiley
 			// and wall and change direction
 			
-			// *** REPLACE THIS COMMENT WITH YOUR CODE ***			
+			// *** REPLACE THIS COMMENT WITH YOUR CODE ***	
+			movingSmiley.translate(currentXMovement, currentYMovement);
+			if(hitSomething())
+			{
+				adjustColorAndDirection();
+			}
 
 			// Use pause() as needed to "slow down" the smiley so that
 			// it does not zip across the screen so fast we can't see what
 			// it's doing!
 			
-			// *** REPLACE THIS COMMENT WITH YOUR CODE ***			
-
+			// *** REPLACE THIS COMMENT WITH YOUR CODE ***		
+			pause(500);
+			display.draw();
 		} while (System.currentTimeMillis() - startTime < TIME_TO_RUN);
 	}
 
@@ -144,7 +162,7 @@ public class SmileyAnimation
 		// *** REPLACE THIS COMMENT WITH YOUR CODE ***
 		if(hitTopWall() || hitBottomWall())
 		{
-			currentYMovement = (currentYMovement == 1) ? -1: 1;
+			currentYMovement *= REVERSE_DIRECTION;
 			switch(generator.nextInt(3))
 			{
 				case 0: currentXMovement = -1; break;
@@ -155,7 +173,7 @@ public class SmileyAnimation
 		
 		if(hitLeftWall() || hitRightWall())
 		{
-			currentXMovement = (currentXMovement == 1) ? -1: 1;
+			currentXMovement *= REVERSE_DIRECTION;
 			switch(generator.nextInt(3))
 			{
 				case 0: currentYMovement = -1; break;
