@@ -47,7 +47,7 @@ public class SmileyAnimation
 		movingSmiley.getRightEye().setAttributes(Color.BLACK, 140, 180, 30, 30);
 		movingSmiley.getSmile().setAttributes(Color.BLACK, 100, 240, 30, 50);
 		
-		display = new SmileyDisplay();
+		display = d;
 		
 		currentXMovement = INIT_X_DIRECTION;
 		currentYMovement = INIT_Y_DIRECTION;
@@ -83,14 +83,14 @@ public class SmileyAnimation
 			{
 				adjustColorAndDirection();
 			}
+			display.draw();
 
 			// Use pause() as needed to "slow down" the smiley so that
 			// it does not zip across the screen so fast we can't see what
 			// it's doing!
 			
 			// *** REPLACE THIS COMMENT WITH YOUR CODE ***		
-			pause(500);
-			display.draw();
+			pause(5);
 		} while (System.currentTimeMillis() - startTime < TIME_TO_RUN);
 	}
 
