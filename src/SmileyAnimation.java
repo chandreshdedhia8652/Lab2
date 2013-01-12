@@ -90,7 +90,27 @@ public class SmileyAnimation
 	// Use helper methods adjustColor() and adjustDirection()
 	private void adjustColorAndDirection()
 	{
-		// *** REPLACE THIS COMMENT WITH YOUR CODE ***			
+		// *** REPLACE THIS COMMENT WITH YOUR CODE ***		
+		if(hitLeftWall())
+		{
+			adjustColor("Left");
+			adjustDirection("Left");
+		}
+		else if(hitTopWall())
+		{
+			adjustColor("Top");
+			adjustDirection("Top");
+		}
+		else if(hitRightWall())
+		{
+			adjustColor("Right");
+			adjustDirection("Right");
+		}
+		else
+		{
+			adjustColor("Bottom");
+			adjustDirection("Bottom");
+		}
 	}
 
 	
