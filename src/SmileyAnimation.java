@@ -80,7 +80,8 @@ public class SmileyAnimation
 	// Hit something! Return true if hit any wall; false if not hit any of them
 	private boolean hitSomething()
 	{
-		// *** REPLACE THIS COMMENT WITH YOUR CODE ***			
+		// *** REPLACE THIS COMMENT WITH YOUR CODE ***	
+		return (hitLeftWall() || hitRightWall() || hitTopWall() || hitBottomWall()) ? true: false;
 	}
 
 	
