@@ -99,7 +99,10 @@ public class SmileyAnimation
 	//  these strings corresponding to the walls they name
 	private void adjustColor(String wallHit)
 	{
-		// *** REPLACE THIS COMMENT WITH YOUR CODE ***			
+		// *** REPLACE THIS COMMENT WITH YOUR CODE ***	
+		Color wallColor = display.getWallColor(wallHit);
+		display.setWallColor(wallHit, movingSmiley.getFace().getColor());
+		movingSmiley.getFace().setColor(wallColor);
 	}
 
 	
@@ -118,7 +121,28 @@ public class SmileyAnimation
 		// y direction can be up, down, or no movement
 		// (translation of 0); it is randomly chosen
 
-		// *** REPLACE THIS COMMENT WITH YOUR CODE ***			
+		// *** REPLACE THIS COMMENT WITH YOUR CODE ***
+		if(hitTopWall() || hitBottomWall())
+		{
+			currentYMovement = (currentYMovement == 1) ? -1: 1;
+			switch(generator.nextInt(3))
+			{
+				case 0: currentXMovement = -1; break;
+				case 1: currentXMovement = 0; break;
+				case 2: currentXMovement = 1; break;
+			}
+		}
+		
+		if(hitLeftWall() || hitRightWall())
+		{
+			currentXMovement = (currentXMovement == 1) ? -1: 1;
+			switch(generator.nextInt(3))
+			{
+				case 0: currentYMovement = -1; break;
+				case 1: currentYMovement = 0; break;
+				case 2: currentYMovement = 1; break;
+			}
+		}
 	}
 
 	
